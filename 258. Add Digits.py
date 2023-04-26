@@ -10,4 +10,9 @@ def addDigits(num):
     return num
 
 
+# very nerdy O(1) math solution
+def nerdy_math_solution(num):
+    return 1 + (num - 1) % 9 if num else 0
+
+
 print(addDigits(38))
