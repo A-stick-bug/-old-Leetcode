@@ -9,6 +9,8 @@ def findCircleNum(isConnected: List[List[int]]) -> int:
         while q:
             node = q.popleft()
             visited[node] = True
+
+            # 'adj' is the adjacent nodes, 'connected' is whether the adjacent is corrected to the current node
             for adj, connected in enumerate(isConnected[node]):
                 if connected == 1 and not visited[adj]:
                     q.append(adj)
@@ -19,7 +21,7 @@ def findCircleNum(isConnected: List[List[int]]) -> int:
 
     for node in range(n):
         if not visited[node]:
-            bfs(node)
+            bfs(node)  # mark all nodes in this province as visited
             provinces += 1
     return provinces
 
