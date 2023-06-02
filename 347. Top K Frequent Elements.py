@@ -12,8 +12,8 @@ def topKFrequent(nums: List[int], k: int) -> List[int]:
     return [heapq.heappop(most_frequent)[1] for _ in range(k)]
 
 
-# simpler solution without heap
-def no_heap(self, nums: List[int], k: int) -> List[int]:
+# simpler solution without heap (technically most_common uses heap though)
+def no_heap(nums: List[int], k: int) -> List[int]:
     count = Counter(nums)
     return [i[0] for i in count.most_common(k)]
 
