@@ -4,15 +4,10 @@
 
 def longestPalindrome(s: str) -> str:
     longest = 1
-    out = ""
-    if len(s) == 0:
-        return out
-
     out = s[0]
+    for i in range(len(s)):  # for every index (and pair of indices)
 
-    for i in range(len(s)):
-        start, end = i, i
-
+        start = end = i  # center is one element
         while start >= 0 and end < len(s) and s[start] == s[end]:
             if end - start + 1 > longest:
                 out = s[start:end + 1]
@@ -20,8 +15,7 @@ def longestPalindrome(s: str) -> str:
             start -= 1
             end += 1
 
-        start = i
-        end = i + 1
+        start, end = i, i + 1  # center is 2 elements
         while start >= 0 and end < len(s) and s[start] == s[end]:
             if end - start + 1 > longest:
                 out = s[start:end + 1]
