@@ -1,4 +1,7 @@
 # counting sort: perfect for this question because max(nums) is small
+# basically turned this into the house robber problem (198)
+# an alternative is to use Counter() but will make the code slightly more complicated
+
 
 def deleteAndEarn(nums) -> int:
     if len(nums) == 1:  # edge case
