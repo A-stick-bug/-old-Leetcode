@@ -25,5 +25,22 @@ def longestPalindrome(s: str) -> str:
     return out
 
 
+def dp_solution(s):
+    n = len(s)
+    dp = [[False] * n for _ in range(n)]
+    res = s[0]  # placeholder in case there is no longer palindrome
+
+    for i in range(n):  # any single letter is a palindrome
+        dp[i][i] = True
+
+    for j in range(n):
+        for i in range(j):
+            if s[i] == s[j] and (dp[i + 1][j - 1] or j == i + 1):
+                dp[i][j] = True
+                if j - i + 1 > len(res):  # longer than current longest
+                    res = s[i:j + 1]
+    return res
+
+
 s = ""
 print(longestPalindrome(s))
